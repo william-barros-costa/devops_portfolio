@@ -1,0 +1,18 @@
+apiVersion: 2
+name: DevOps Portfolio
+version: 
+description: A helm chart used to prove my ability to deploy a simple web server to AWS cloud
+version: 0.1.0
+appVersion: 0.1.0
+mantainers:
+  - name: William Costa
+    email: william.de.barros.da.costa@gmail.com
+keywords:
+  - example
+  - golang
+  - helm-chart
+  - kubernetes
+  - terraform
+sources:
+  - https://www.linkedin.com/in/william-barros-costa/
+  - https://github.com/william-barros-costa/devops_portfolio

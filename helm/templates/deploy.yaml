@@ -1,18 +1,47 @@
-apiVersion: 2
-name: DevOps Portfolio
-version: 
-description: A helm chart used to prove my ability to deploy a simple web server to AWS cloud
-version: 0.1.0
-appVersion: 0.1.0
-mantainers:
-  - name: William Costa
-    email: william.de.barros.da.costa@gmail.com
-keywords:
-  - example
-  - golang
-  - helm-chart
-  - kubernetes
-  - terraform
-sources:
-  - https://www.linkedin.com/in/william-barros-costa/
-  - https://github.com/william-barros-costa/devops_portfolio
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devop_portfolio
+  namespace: default
+  labels:
+    app: devop_portfolio
+spec:
+  selector:
+    matchLabels:
+      app: devop_portfolio
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/default-container:  devop_portfolio
+      labels:
+        app: devop_portfolio
+    spec:
+      containers:
+      - name: devop_portfolio
+        image: {{.Values.image.repository}}:{{.Values.image.tag}}
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: SAMPLE_VARIABLE
+          valueFrom:
+            configMapKeyRef:
+              name: devop_portfolio
+              key: SAMPLE_VARIABLE
+    {{- with .Values.imagePullSecrets }} 
+      imagePullSecrets:
+        {{- toYaml . | nindent 8}}
+    {{- end }}
+---
+
