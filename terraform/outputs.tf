@@ -12,4 +12,4 @@ output "load_balancer" {
 
 output "admin_secret" {
   value = module.kubernetes.argocd_initial_admin_secret
-  t }
+}
