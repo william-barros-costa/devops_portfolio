@@ -24,9 +24,12 @@ jobs:
           go-version: 1.23.4
           check-latest: true
       - name: Test
-        run: go test src/...
+        run: |
+          cd src
+          go test ./...
       - name: Format
         run: |
+          cd src
           go install golang.org/x/tools/cmd/goimports@latest
           go list -f {{.Dir}} ./... | xargs -I{} gofmt -w -s {}
           go list -f {{.Dir}} ./... | xargs -I{} goimports -w {}
