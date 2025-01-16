@@ -71,9 +71,9 @@ jobs:
         with:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
           subject-digest: ${{ steps.push.outputs.digest }}
-          # push-to-registry: true
       
       - name: Update Helm Chart
         run: |
           sed -i 's/tag: .*/tag ${{ github.sha }}/' helm/values.yaml
+          cat helm/values.yaml
 
