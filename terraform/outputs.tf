@@ -1,3 +1,7 @@
+output "eks_connect" {
+  value = "aws eks --region eu-west-1 update-kubeconfig --name ${module.aws.cluster_name}"
+}
+
 output "region" {
   value = module.aws.region
 }
