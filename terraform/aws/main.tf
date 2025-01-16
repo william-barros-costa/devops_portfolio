@@ -11,7 +11,7 @@ data "aws_availability_zones" "available" {
 
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
-  version = "5.8.1"
+  version = "5.17.0"
 
   name = "devops_portfolio_vpc"
 
@@ -36,10 +36,10 @@ module "vpc" {
 
 module "eks" {
   source = "terraform-aws-modules/eks/aws"
-  version = "20.8.5"
+  version = "~> 20.31"
 
   cluster_name = var.cluster_name
-  cluster_version = "1.27"
+  cluster_version = "1.31"
 
   
   cluster_endpoint_public_access           = true
