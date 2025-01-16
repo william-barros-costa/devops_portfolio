@@ -4,6 +4,8 @@ on:
   push:
       branches: 
         - main
+      paths:
+        - 'src/**'
   workflow_dispatch:
 
 env:
@@ -40,10 +42,12 @@ jobs:
     if: success()
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
+      pull-requests: write
       packages: write
       attestations: write 
       id-token: write
+
 
     steps:
       - name: Checkout repository
@@ -75,5 +79,13 @@ jobs:
       - name: Update Helm Chart
         run: |
           sed -i 's/tag: .*/tag ${{ github.sha }}/' helm/values.yaml
-          cat helm/values.yaml
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -a -m "Changed Helm Chart tag"
+
+      - name: Commit and push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
 
