@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devop_portfolio
+  name: {{ .Values.name }}
   namespace: default
   labels:
-    app: devop_portfolio
+    app: {{ .Values.name }}
 spec:
   selector:
     matchLabels:
-      app: devop_portfolio
+      app: {{ .Values.name }}
   replicas: 1
   strategy:
     rollingUpdate:
@@ -18,13 +18,13 @@ spec:
   template:
     metadata:
       annotations:
-        kubectl.kubernetes.io/default-container:  devop_portfolio
+        kubectl.kubernetes.io/default-container:  {{ .Values.name }}
       labels:
-        app: devop_portfolio
+        app: {{ .Values.name }}
     spec:
       containers:
-      - name: devop_portfolio
-        image: {{.Values.image.repository}}:{{.Values.image.tag}}
+      - name: {{ .Values.name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: IfNotPresent
         resources:
           requests:
@@ -37,7 +37,7 @@ spec:
         - name: SAMPLE_VARIABLE
           valueFrom:
             configMapKeyRef:
-              name: devop_portfolio
+              name: {{ .Values.name }}
               key: SAMPLE_VARIABLE
     {{- with .Values.imagePullSecrets }} 
       imagePullSecrets:

@@ -1,3 +1,4 @@
+name: devops_portfolio
 image:
   # I have used Github Container Registry but, could as easily use Gitlab Container Registry or Dockerhub
   # Example Gitlab Version:
@@ -6,6 +7,6 @@ image:
   #   repository: <account>/devops_portfolio
   repository: https://ghcr.io/william-barros-costa/devops_portfolio
   tag: 1
-# The deployed docker image is public on the Girhub Container Registry so, it does not use imagePullSecrets. I have included it for completeness of the Portfolio
+# The deployed docker image is public on the Github Container Registry so, it does not use imagePullSecrets. I have included it for completeness of the Portfolio
 imagePullSecrets: 
-  - name: my-private-repo-secret 
+  - name: my_private_repo_secret 
