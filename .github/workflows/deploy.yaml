@@ -78,7 +78,7 @@ jobs:
       
       - name: Update Helm Chart
         run: |
-          sed -i 's/tag: .*/tag ${{ github.sha }}/' helm/values.yaml
+          sed -i 's/tag: .*/tag: ${{ github.sha }}/' helm/values.yaml
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -a -m "Changed Helm Chart tag"
