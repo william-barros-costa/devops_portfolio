@@ -1,0 +1,10 @@
+# https://kubernetes.io/docs/concepts/configuration/configmap/
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.name }}-cm
+  namespace: default
+data:
+  SAMPLE_VARIABLE: SAMPLE_VALUE
+---
+
