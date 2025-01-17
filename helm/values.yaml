@@ -6,7 +6,7 @@ image:
   # Example Dockerhub Version:
   #   repository: <account>/devops_portfolio
   repository: https://ghcr.io/william-barros-costa/devops_portfolio
-  tag: fa258e8e669f63c959d381296d6f16750460d859
+  tag: 37b02c56d1b9ac0c8a4e144395c69ffaa8c9e35c
 # The deployed docker image is public on the Github Container Registry so, it does not use imagePullSecrets. I have included it for completeness of the Portfolio
 imagePullSecrets: 
   - name: my_private_repo_secret 
