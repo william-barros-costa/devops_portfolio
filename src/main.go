@@ -49,5 +49,8 @@ func main() {
 		Addr:    ":80",
 		Handler: mux,
 	}
-	server.ListenAndServe()
+	err := server.ListenAndServe()
+	if err != nil {
+		fmt.Println("Error:", err)
+	}
 }
