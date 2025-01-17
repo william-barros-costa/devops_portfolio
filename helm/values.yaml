@@ -1,4 +1,4 @@
-name: devops_portfolio
+name: devops-portfolio
 image:
   # I have used Github Container Registry but, could as easily use Gitlab Container Registry or Dockerhub
   # Example Gitlab Version:
