@@ -37,7 +37,7 @@ spec:
         - name: SAMPLE_VARIABLE
           valueFrom:
             configMapKeyRef:
-              name: {{ .Values.name }}
+              name: {{ .Values.name }}-cm
               key: SAMPLE_VARIABLE
     {{- with .Values.imagePullSecrets }} 
       imagePullSecrets:
