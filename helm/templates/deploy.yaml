@@ -26,13 +26,6 @@ spec:
       - name: {{ .Values.name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: IfNotPresent
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
-          limits:
-            cpu: 100m
-            memory: 100Mi
         env:
         - name: SAMPLE_VARIABLE
           valueFrom:
