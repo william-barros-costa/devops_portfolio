@@ -5,7 +5,7 @@ image:
   #   repository: registry.gitlab.com/<account>/devops_portfolio
   # Example Dockerhub Version:
   #   repository: <account>/devops_portfolio
-  repository: https://ghcr.io/william-barros-costa/devops_portfolio
+  repository: ghcr.io/william-barros-costa/devops_portfolio
   tag: 37b02c56d1b9ac0c8a4e144395c69ffaa8c9e35c
 # The deployed docker image is public on the Github Container Registry so, it does not use imagePullSecrets. I have included it for completeness of the Portfolio
 imagePullSecrets: 
