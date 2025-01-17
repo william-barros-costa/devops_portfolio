@@ -17,5 +17,5 @@ COPY --chown=server:server html .
 COPY --chown=server:server --from=builder /app/server /app/server
 
 USER server
-EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT ["/app/server"]
