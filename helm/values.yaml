@@ -6,4 +6,4 @@ image:
   # Example Dockerhub Version:
   #   repository: <account>/devops_portfolio
   repository: ghcr.io/william-barros-costa/devops_portfolio
-  tag: b06e976480851d48c94f4d264382e070b639bc74
+  tag: d44fa91c8e9b603265c249d1b7a16b5e8fecf297
