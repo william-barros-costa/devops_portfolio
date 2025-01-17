@@ -28,3 +28,7 @@ data "kubernetes_service" "argocd_server" {
     namespace = helm_release.argocd.namespace
   }
 }
+
+resource "kubernetes_manifest" "argocd_application" {
+  manifest = yamldecode(file("../argocd/app.yaml"))
+}
